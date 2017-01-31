@@ -1,0 +1,7 @@
+FROM dockerfile/java:oracle-java8
+
+VOLUME /tmp
+ADD abc.org.com.jar /opt/abc.org.com/
+EXPOSE 8080
+WORKDIR /opt/abc.org.com/
+CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-Xms512m", "-Xmx1g", "-jar", "abc.org.com.jar"]
